@@ -148,14 +148,14 @@ do
 	for session in 01
 	do
 
-		## ------- this is for the first time generating heuristic.py file ------
-		# singularity run --cleanenv -B $base_dir:/base $sif \
-		# -d /base/organized_dicom/{subject}/{session}/*/*.dcm \
-		# -o /base/raw_bids/ \
-		# -f convertall \
-		# -s $subject -ss $session \
-		# -c none \
-		# --overwrite
+		## ------- this is for generating dicom info and heuristic.py file ------
+		singularity run --cleanenv -B $base_dir:/base $sif \
+		-d /base/organized_dicom/{subject}/{session}/*/*.dcm \
+		-o /base/raw_bids/ \
+		-f convertall \
+		-s $subject -ss $session \
+		-c none \
+		--overwrite
 		
 		
 		## ------------------ run converter --------------------
